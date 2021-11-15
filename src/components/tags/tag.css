@@ -1,0 +1,41 @@
+.tag-title{
+    text-align: center;
+}
+.tag-group{
+    display: flex;
+    padding-left: 10px;
+    border: 2px black solid;
+    width: 200px;
+    margin-bottom:15px ;
+    align-items: center;
+}
+.tag{
+    display: flex;
+    
+}
+
+.tag-edit-delete{
+    margin-right: 12px;
+}
+
+.tag-manager{
+    display: flex;
+}
+.tag-list{
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.tag-form{
+    margin-left: auto;
+}
+.tag-form-group{
+    padding:20px;
+    border: 2px black solid;
+    margin: 20px;
+    border-radius:20px ;
+}
+
+.form-button{
+    margin-top:10px;
+}

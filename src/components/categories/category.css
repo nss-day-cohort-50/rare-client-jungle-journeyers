@@ -1,0 +1,39 @@
+.add-category{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 3rem;
+    margin-right: 1rem;
+}
+.add-category span{
+    padding-top: .90rem;
+}
+.category-container{
+    border: 2px solid black;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.category-head{
+    display: flex;
+    justify-content: space-between;
+}
+.category-body{
+    display: flex;
+    align-self: center;
+}
+.category-footer{
+    display: flex;
+    justify-content: space-between;
+}
+.category-icons{
+    display: flex;
+    justify-content: space-evenly;
+}
+.category-icons p {
+    border: 1px black dashed 60%;
+}
+.category-icons span {
+    padding: .9rem;
+}

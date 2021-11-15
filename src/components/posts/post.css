@@ -1,0 +1,39 @@
+.add-post{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 3rem;
+    margin-right: 1rem;
+}
+.add-post span{
+    padding-top: .90rem;
+}
+.post-container{
+    border: 2px solid black;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.post-head{
+    display: flex;
+    justify-content: space-between;
+}
+.post-body{
+    display: flex;
+    align-self: center;
+}
+.post-footer{
+    display: flex;
+    justify-content: space-between;
+}
+.post-icons{
+    display: flex;
+    justify-content: space-evenly;
+}
+.post-icons p {
+    border: 1px black dashed 60%;
+}
+.post-icons span {
+    padding: .9rem;
+}

@@ -6,6 +6,7 @@ export const Register = (props) => {
     const firstName = useRef()
     const lastName = useRef()
     const email = useRef()
+    const username = useRef()
     const bio = useRef()
     const password = useRef()
     const verifyPassword = useRef()
@@ -16,14 +17,18 @@ export const Register = (props) => {
 
         if (password.current.value === verifyPassword.current.value) {
             const newUser = {
-                "username": email.current.value,
+                "username": username.current.value,
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
+                "bio": "",
                 "email": email.current.value,
-                "password": password.current.value
+                "password": password.current.value,
+                "created_on": "2021-12-20",
+                "active": false
+                
             }
 
-            return fetch("http://127.0.0.1:8088/register", {
+            return fetch("http://127.0.0.1:8000/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -53,6 +58,10 @@ export const Register = (props) => {
 
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Register an account</h1>
+                <fieldset>
+                    <label htmlFor="username"> Username </label>
+                    <input ref={username} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
+                </fieldset>
                 <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />

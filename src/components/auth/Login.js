@@ -46,8 +46,8 @@ export const Login = () => {
                     <h1>Rare Publishing</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Username </label>
-                        <input ref={username} type="text" id="email" className="form-control" defaultValue="me@me.com" placeholder="Email address" required autoFocus />
+                        <label htmlFor="inputEmail"> Email address </label>
+                        <input ref={username} type="username" id="username" className="form-control" defaultValue="me@me.com" placeholder="Email address" required autoFocus />
                     </fieldset>
                     <fieldset>
                         <label htmlFor="inputPassword"> Password </label>

@@ -38,11 +38,9 @@ export const ApplicationViews = () => {
             <TagList/>
             
         </Route>
-        
                 <Route path="/categories">
-                <CategoryManager/>
+                    <CategoryManager />
                 </Route>
-       
         <Route path="/editTag/:tagId(\d+)">
             <EditTag/>
             

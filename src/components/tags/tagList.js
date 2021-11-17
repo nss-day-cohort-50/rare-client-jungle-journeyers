@@ -7,7 +7,7 @@ import { useHistory, Link } from "react-router-dom";
 export const TagList = () => {
 
     const [tags, changeTag] = useState([])
-const history = useHistory
+    const history = useHistory
     // useEffect(
     //     () => {
     //         fetch("http://localhost:8088/tags")
@@ -19,7 +19,11 @@ const history = useHistory
     // )
     const reRender = () => {
 
-        return fetch("http://localhost:8088/tags")
+        return fetch("http://127.0.0.1:8000/tags",{
+            headers: {
+                "Authorization": ` Token ${localStorage.getItem("rare_user_id")}`
+            }
+        })
             .then(res => res.json())
             .then((ListArray) => {
                 changeTag(ListArray)
@@ -48,10 +52,10 @@ const history = useHistory
                                 return <div className='tag' key={`tag--${tag.id}`}>
                                     <div className="tag-group">
                                         <div className='tag-edit-delete'>
-                                           <Link to ={`/editTag/${tag.id}`}> <button >edit</button></Link>
+                                            <Link to={`/editTag/${tag.id}`}> <button >edit</button></Link>
                                             <button onClick={() => {
                                                 deleteTag(tag.id)
-                                                
+
                                             }}>delete</button>
                                         </div>
                                         <p>{tag.label}</p>
@@ -62,7 +66,7 @@ const history = useHistory
                         )
                     }</div>
                 <CreateTag reRender={reRender} />
-                
+
             </div>
 
 

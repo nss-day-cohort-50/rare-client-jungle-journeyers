@@ -1,10 +1,10 @@
 
 import React,{ createContext, useState } from "react";
-const api = "http://localhost:8088"
+const api = "http://localhost:8000"
 export const PostContext = createContext()
 
 export const PostProvider = (props) => {
-    const currentUser = parseInt(localStorage.getItem("rare_user_id"))
+    const currentUser = localStorage.getItem("rare_user_id")
     const [myPost, setMyPost] = useState([])
     const getPost = (id) => {
         return fetch(`${api}/posts/${id}`)
@@ -12,7 +12,11 @@ export const PostProvider = (props) => {
             
     }
     const fetchMyPost = () => {
-        return fetch(`${api}/posts?user_id=${currentUser}`)
+        return fetch(`${api}/mypost`, {
+            headers:{
+                "Authorization": `Token ${currentUser}`
+            }
+        })
             .then(res => res.json())
             .then((data) => {
                 setMyPost(data)

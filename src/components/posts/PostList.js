@@ -8,6 +8,7 @@ import AddIcon from '@material-ui/icons/Add';
 export const MyPostList = () => {
     const {myPost, fetchMyPost, deletePost} = useContext(PostContext)
     const history = useHistory()
+   
     useEffect(()=>{
         fetchMyPost()
     },[])
@@ -42,7 +43,9 @@ export const MyPostList = () => {
                                 deletePost(post.id).then(()=>fetchMyPost())
                             }}><DeleteIcon/></Link>
                         </span>
-                        <button >Comment</button>
+                        <button onClick = {
+                            ()=> {history.push(`/comments/${post.id}`)}
+                        }>Comment</button>
                     </div>
                 </div>
             </div>

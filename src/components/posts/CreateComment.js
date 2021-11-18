@@ -22,12 +22,13 @@ export const CreateComment = () => {
     } , [])
 
     const postComment = () => {
+        const currentUser = localStorage.getItem("rare_user_id")
         
         const commentObject = {
-            post_id: postId,
-            author_id: parseInt(localStorage.getItem("rare_user_id")),
+            post: postId,
+    
             content: comment,
-            created_on: Date.now()
+            created_on: new Date().toISOString().slice(0,10),
         }
         
         setComment('')
@@ -35,7 +36,8 @@ export const CreateComment = () => {
         const fetchOption = {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Token ${currentUser}`
             },
             body: JSON.stringify(commentObject)
         }

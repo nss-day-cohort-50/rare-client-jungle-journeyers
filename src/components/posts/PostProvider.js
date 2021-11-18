@@ -44,7 +44,7 @@ export const PostProvider = (props) => {
             body: JSON.stringify(object)
         }
         
-        return fetch(`${api}/posts`, fetchOption)
+        return fetch(`${api}/mypost`, fetchOption)
             
     }
     const deletePost = (id) =>{

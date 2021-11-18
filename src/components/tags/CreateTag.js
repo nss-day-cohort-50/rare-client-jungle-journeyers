@@ -20,12 +20,13 @@ const CreateTag = ({reRender}) => {
         const fetchOption = {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": ` Token ${localStorage.getItem("rare_user_id")}`
             },
             body: JSON.stringify(newTag)
         }
 
-        return fetch("http://localhost:8088/tags", fetchOption).then(()=>{
+        return fetch("http://localhost:8000/tags", fetchOption).then(()=>{
             tag.label = ""
         })
 

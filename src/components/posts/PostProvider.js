@@ -6,6 +6,7 @@ export const PostContext = createContext()
 export const PostProvider = (props) => {
     const currentUser = localStorage.getItem("rare_user_id")
     const [myPost, setMyPost] = useState([])
+    const [allPosts, setAllPosts] = useState([])
     const getPost = (id) => {
         return fetch(`${api}/posts/${id}`)
             .then(res => res.json())
@@ -20,6 +21,17 @@ export const PostProvider = (props) => {
             .then(res => res.json())
             .then((data) => {
                 setMyPost(data)
+            })
+    }
+    const fetchAllPosts = () => {
+        return fetch(`${api}/posts`, {
+            headers:{
+                "Authorization": `Token ${currentUser}`
+            }
+        })
+            .then(res => res.json())
+            .then((data) => {
+                setAllPosts(data)
             })
     }
     const createPost = (object) => {
@@ -56,6 +68,6 @@ export const PostProvider = (props) => {
         return fetch(`${api}/posts/${id}`, dataToSend)
     }
     return (<PostContext.Provider value={{
-        fetchMyPost, myPost, createPost,deletePost, getPost, editPost
+        fetchMyPost, myPost, createPost,deletePost, getPost, editPost, fetchAllPosts, allPosts
     }}>{props.children}</PostContext.Provider>)
 }

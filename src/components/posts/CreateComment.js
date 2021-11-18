@@ -9,8 +9,8 @@ export const CreateComment = () => {
     const[bull, setBull] = useState({})
 
     const reRender = () => {
-       
-        return fetch(`http://localhost:8088/comments?post_id=${postId}`)
+        const currentUser = localStorage.getItem("rare_user_id")
+        return fetch(`http://localhost:8000/comments?post_id=${postId}`, {headers: {"Authorization": `Token ${currentUser}`} })
             .then(res => res.json())
             .then((data) => {
                 setPostComments(data)
@@ -40,7 +40,7 @@ export const CreateComment = () => {
             body: JSON.stringify(commentObject)
         }
         
-        return fetch("http://localhost:8088/comments", fetchOption)
+        return fetch("http://localhost:8000/comments", fetchOption)
             .then(reRender)
 
 }

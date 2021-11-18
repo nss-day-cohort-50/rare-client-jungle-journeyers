@@ -8,15 +8,7 @@ export const TagList = () => {
 
     const [tags, changeTag] = useState([])
     const history = useHistory
-    // useEffect(
-    //     () => {
-    //         fetch("http://localhost:8088/tags")
-    //             .then(res => res.json())
-    //             .then((ListArray) => {
-    //                 changeTag(ListArray)
-    //             })
-    //     }, []
-    // )
+   
     const reRender = () => {
 
         return fetch("http://127.0.0.1:8000/tags",{

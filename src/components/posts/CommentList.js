@@ -9,7 +9,7 @@ export const CommentList = ({postId, comments, reRender}) => {
 
     const deleteListItem = (id) => {
         
-            return fetch(`http://localhost:8088/comments/${id}`, {
+            return fetch(`http://localhost:8000/comments/${id}`, {
                 method: "DELETE"
             }) 
             .then(() => {
@@ -27,7 +27,7 @@ export const CommentList = ({postId, comments, reRender}) => {
                         return (
                         <>
                             
-                            <div>{comment.user.username}</div>
+                            <div>{comment.user?.username}</div>
                             <div>{comment.content}</div><button onClick={() => deleteListItem(comment.id)}>Delete</button>
                         </>)}
 

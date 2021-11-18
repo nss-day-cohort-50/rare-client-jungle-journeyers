@@ -7,7 +7,7 @@ import { useHistory, Link } from "react-router-dom";
 export const TagList = () => {
 
     const [tags, changeTag] = useState([])
-    const history = useHistory
+    const history = useHistory()
    
     const reRender = () => {
 

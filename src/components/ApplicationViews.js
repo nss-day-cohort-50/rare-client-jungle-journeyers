@@ -9,6 +9,7 @@ import { TagList } from "./tags/tagList"
 import { EditTag } from "./tags/EditTag"
 import { EditPost } from "./posts/EditPost"
 import { CategoryManager } from "./categories/CreateCategory"
+import { AllPosts } from "./posts/AllPosts"
 
 export const ApplicationViews = () => {
     return <>
@@ -22,6 +23,9 @@ export const ApplicationViews = () => {
         <PostProvider>
                 <Route exact path ="/mypost">
                     <MyPostList />
+                </Route>
+                <Route exact path ="/allPosts">
+                    <AllPosts />
                 </Route>
                 
                 <Route exact path ="/comments/:postId(\d+)">

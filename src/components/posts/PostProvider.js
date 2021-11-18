@@ -26,12 +26,13 @@ export const PostProvider = (props) => {
         const fetchOption = {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Token ${currentUser}`
             },
             body: JSON.stringify(object)
         }
         
-        return fetch(`${api}/posts`, fetchOption)
+        return fetch(`${api}/mypost`, fetchOption)
             
     }
     const deletePost = (id) =>{

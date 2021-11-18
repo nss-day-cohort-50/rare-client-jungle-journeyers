@@ -5,15 +5,14 @@ export const CreatePost = () =>{
     const {createPost} = useContext(PostContext)
     const title = useRef()
     const content = useRef()
-    const date = Date.now()
     const history = useHistory()
     const buildObject = () => {
         return {
-                "user_id" : parseInt(localStorage.getItem("rare_user_id")),
-                "category_id" : 1,
-                "publication_date": date,
+                "categoryId" : 1,
+                "publicationDate": new Date().toISOString().slice(0,10),
                 "title" : title.current.value,
-                "content" : content.current.value 
+                "content" : content.current.value, 
+                "approved" :false
         }
     }
     return(
@@ -22,10 +21,6 @@ export const CreatePost = () =>{
                 <fieldset>
                     <label htmlFor="title"> Title </label>
                     <input  type="text" name="title" ref={title} className="form-control" placeholder="Title" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="iamgeurl"> Image URL </label>
-                    <input type="text" name="iamgeurl" className="form-control" placeholder="URL" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="article"> Article Content  </label>

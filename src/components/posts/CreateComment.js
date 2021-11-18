@@ -9,7 +9,7 @@ export const CreateComment = () => {
     const[bull, setBull] = useState({})
 
     const reRender = () => {
-       
+        const currentUser = localStorage.getItem("rare_user_id")
         return fetch(`http://localhost:8000/comments?post_id=${postId}`, {headers: {"Authorization": `Token ${currentUser}`} })
             .then(res => res.json())
             .then((data) => {
@@ -23,10 +23,12 @@ export const CreateComment = () => {
 
     const postComment = () => {
         const currentUser = localStorage.getItem("rare_user_id")
+        
         const commentObject = {
-            post_id: postId,
+            post: postId,
+    
             content: comment,
-            created_on:new Date().toISOString().slice(0,10),
+            created_on: new Date().toISOString().slice(0,10),
         }
         
         setComment('')
